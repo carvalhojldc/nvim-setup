@@ -88,4 +88,13 @@ function()
     end
 end)
 
+vim.keymap.set('n', '<leader>gh',
+function()
+    if next(require('diffview.lib').views) == nil then
+        vim.cmd('DiffviewFileHistory')
+    else
+        vim.cmd('DiffviewClose')
+    end
+end)
+
 require('lsp_config')
