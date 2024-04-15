@@ -17,7 +17,7 @@ vim.call('plug#begin')
 
     ---------------------------------------
     -- Completion / linters / formatters
-    Plug('thaerkh/vim-indentguides')
+    -- Plug('thaerkh/vim-indentguides')
     --Plug 'sheerun/vim-polyglot'
     Plug('sindrets/diffview.nvim')
     Plug('lewis6991/gitsigns.nvim')

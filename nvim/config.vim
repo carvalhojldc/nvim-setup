@@ -12,12 +12,16 @@ set splitbelow splitright
 set title
 set ttimeoutlen=0
 set wildmenu
-set cc=80
+set cc=100
+set noswapfile
 
 " Tabs size
 set expandtab
 set shiftwidth=4
 set tabstop=4
+set softtabstop=4
+nmap <leader>us :set expandtab<CR>
+nmap <leader>ut :set noexpandtab<CR>
 
 filetype plugin indent on
 syntax on
@@ -28,6 +32,7 @@ endif
 set encoding=UTF-8
 
 set listchars=tab:→\ ,eol:↲,nbsp:␣,trail:•,extends:⟩,precedes:⟨
+set list
 
 " =============================================================================
 " Navigation
@@ -55,6 +60,7 @@ nnoremap <leader>ft <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 " =============================================================================
 nmap <C-p> :NvimTreeToggle<CR>
+nmap <C-f> :NvimTreeFindFile<CR>
 
 " =============================================================================
 "
