@@ -3,6 +3,20 @@ local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local lspconfig = require('lspconfig')
 
+-- lspconfig.clangd.setup {
+--     cmd = { "clangd", "--clang-tidy" },
+--     filetypes = { "c", "cpp", "pc" },
+--     root_dir = lspconfig.util.root_pattern("Makefile", ".git"),
+--     settings = {
+--         -- Configure Clangd include paths here
+--         clangd = {
+--             -- Example include path configuration
+--             -- extraArgs = { "-I/path/to/include", "-I/another/include" }
+--         }
+--     },
+--     capabilities = capabilities,
+-- }
+
 local servers = { 'clangd', 'rust_analyzer', 'pyright' }
 for _, lsp in ipairs(servers) do
     lspconfig[lsp].setup {
@@ -11,6 +25,8 @@ for _, lsp in ipairs(servers) do
 end
 
 local luasnip = require 'luasnip'
+
+require("luasnip.loaders.from_vscode").lazy_load()
 
 -- nvim-cmp setup
 local cmp = require 'cmp'
@@ -51,6 +67,7 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    { name = 'buffer' },
   },
 }
 
